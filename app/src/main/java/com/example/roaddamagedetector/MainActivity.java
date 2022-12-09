@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void init() {
 
-        realm = Realm.getDefaultInstance();
+        realm = Realm.getInstance(RealmUtility.getDefaultConfig());
 
         RealmResults<User> result = realm.where(User.class).findAll();
 
