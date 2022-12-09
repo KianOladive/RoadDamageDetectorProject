@@ -80,11 +80,11 @@ public class RoadDamage extends RealmObject {
     }
 
     public String getLocation() {
-        return date;
+        return location;
     }
 
     public void setLocation(String location) {
-        this.date = location;
+        this.location = location;
     }
 
     public String getDate() {
