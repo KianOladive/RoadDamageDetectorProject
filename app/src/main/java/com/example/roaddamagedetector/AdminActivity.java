@@ -45,7 +45,7 @@ public class AdminActivity extends AppCompatActivity {
         recyclerViewUsers.setLayoutManager(mLayoutManager);
 
         // initialize Realm
-        realm = Realm.getDefaultInstance();
+        realm = Realm.getInstance(RealmUtility.getDefaultConfig());
 
         // query the things to display
         RealmResults<User> list = realm.where(User.class).findAll();

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRDActivity">
+
+    <EditText
+        android:id="@+id/etDamageType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etLatitude"
+        app:layout_constraintStart_toStartOf="@+id/etLatitude" />
+
+    <TextView
+        android:id="@+id/tvDamageType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Damage Type"
+        app:layout_constraintBottom_toTopOf="@+id/etDamageType"
+        tools:layout_editor_absoluteX="101dp" />
+
+    <TextView
+        android:id="@+id/tvEntryId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="Entry Id"
+        app:layout_constraintBottom_toTopOf="@+id/tvEntryIdContent"
+        app:layout_constraintStart_toStartOf="@+id/tvEntryIdContent" />
+
+    <TextView
+        android:id="@+id/tvEntryIdContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="entry ID here"
+        app:layout_constraintBottom_toTopOf="@+id/tvDamageType"
+        app:layout_constraintStart_toStartOf="@+id/tvDamageType" />
+
+    <TextView
+        android:id="@+id/tvLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Longitude"
+        app:layout_constraintStart_toStartOf="@+id/etLatitude"
+        app:layout_constraintTop_toBottomOf="@+id/etLatitude" />
+
+    <EditText
+        android:id="@+id/etLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/etLatitude"
+        app:layout_constraintTop_toBottomOf="@+id/etLatitude" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Location"
+        app:layout_constraintStart_toStartOf="@+id/etLongitude"
+        app:layout_constraintTop_toBottomOf="@+id/etLongitude" />
+
+    <EditText
+        android:id="@+id/etLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/tvLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etLongitude" />
+
+    <EditText
+        android:id="@+id/etLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Latitude"
+        app:layout_constraintBottom_toTopOf="@+id/etLatitude"
+        app:layout_constraintStart_toStartOf="@+id/etLatitude" />
+
+    <Button
+        android:id="@+id/btnAddRDPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="236dp"
+        android:text="Attach Photo"
+        app:layout_constraintBottom_toTopOf="@+id/etLatitude"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddRDCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="cancel"
+        app:layout_constraintEnd_toEndOf="@+id/etLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etLocation" />
+
+    <Button
+        android:id="@+id/btnAddRDSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Save"
+        app:layout_constraintStart_toStartOf="@+id/etLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etLocation" />
+
+    <ImageView
+        android:id="@+id/imgVwAddRD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/etDamageType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
