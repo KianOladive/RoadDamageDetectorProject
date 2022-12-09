@@ -51,7 +51,7 @@ public class EditActivity extends AppCompatActivity {
     @AfterViews
     public void init() {
 
-        realm = Realm.getDefaultInstance();
+        realm = Realm.getInstance(RealmUtility.getDefaultConfig());
 
         RealmResults<User> result = realm.where(User.class).findAll();
         prefs = getSharedPreferences("myPrefs", MODE_PRIVATE);

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_add_rdactivity.xml" value="0.33" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_admin.xml" value="0.25" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_capture_image.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_edit.xml" value="0.2713541666666667" />
