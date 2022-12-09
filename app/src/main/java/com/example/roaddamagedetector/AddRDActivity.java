@@ -71,7 +71,7 @@ public class AddRDActivity extends AppCompatActivity {
     int entryId;
     String userName;
     String date;
-    String path;
+    String path = "";
 
 
     @AfterViews
@@ -144,7 +144,7 @@ public class AddRDActivity extends AppCompatActivity {
                 Double longitude = Double.parseDouble(etLongitude.getText().toString());
                 String location = etLocation.getText().toString();
 
-                RoadDamage newRoadDamage =  new RoadDamage(uuid, entryId, damageType, latitude, longitude, userName, location, date);
+                RoadDamage newRoadDamage =  new RoadDamage(uuid, entryId, damageType, latitude, longitude, userName, location, date, path);
 
                 long count = 0;
 
@@ -255,10 +255,10 @@ public class AddRDActivity extends AppCompatActivity {
             if (number != null) {
                 return number.intValue() + 1;
             } else {
-                return 0;
+                return 18172;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            return 0;
+            return 18172;
         }
     }
 

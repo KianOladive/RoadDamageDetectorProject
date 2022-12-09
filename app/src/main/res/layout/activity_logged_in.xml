@@ -35,4 +35,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.962"
         app:menu="@menu/item_menu" />
+
+    <TextView
+        android:id="@+id/tvHiUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Hi!"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddRoadDamage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

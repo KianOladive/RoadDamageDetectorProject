@@ -15,10 +15,11 @@ public class RoadDamage extends RealmObject {
     private String userName;
     private String location;
     private String date;
+    private String path;
 
     public RoadDamage() {}
 
-    public RoadDamage(String uuid, int entryId, String damageType, double latitude, double longitude, String userName, String location, String date) {
+    public RoadDamage(String uuid, int entryId, String damageType, double latitude, double longitude, String userName, String location, String date, String path) {
         this.uuid = uuid;
         this.entryId = entryId;
         this.damageType = damageType;
@@ -27,6 +28,7 @@ public class RoadDamage extends RealmObject {
         this.userName = userName;
         this.location = location;
         this.date = date;
+        this.path = path;
     }
 
     public String getUuid() {
@@ -93,6 +95,14 @@ public class RoadDamage extends RealmObject {
         this.date = date;
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     @Override
     public String toString() {
         return "RoadDamage{" +
@@ -102,7 +112,9 @@ public class RoadDamage extends RealmObject {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", userName='" + userName + '\'' +
+                ", location='" + location + '\'' +
                 ", date='" + date + '\'' +
+                ", path='" + path + '\'' +
                 '}';
     }
 }
