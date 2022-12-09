@@ -36,15 +36,28 @@ public class LoggedInActivity extends AppCompatActivity {
     Button btnAddRoadDamage;
 
     @ViewById
+    TextView tvHiUser;
+
+    @ViewById
     BottomNavigationView bottom_navigation;
 
     SharedPreferences prefs;
     Realm realm;
 
+    String uuidUser;
+
     @AfterViews
     public void init() {
         prefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
         realm = Realm.getInstance(RealmUtility.getDefaultConfig());
+
+        uuidUser = prefs.getString("uuidUser", null);
+        User loggedInUser = realm.where(User.class)
+                .equalTo("uuid", uuidUser)
+                .findFirst();
+
+        tvHiUser.setText("Hi, " + loggedInUser.getName() + "!");
+
 
 //        String uuid = prefs.getString("uuid", null);
 //        User result = realm.where(User.class)

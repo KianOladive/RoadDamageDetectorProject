@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (result != null) {
             if (result.getPassword().equals(etPassword.getText().toString())) {
-                edit.putString("uuid", result.getUuid());
+                edit.putString("uuidUser", result.getUuid());
                 edit.apply();
                 openLoggedInScreen();
             }
