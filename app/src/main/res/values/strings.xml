@@ -3,4 +3,6 @@
 
     <!-- THIS MUST MATCH YOUR PACKAGE NAME OR ELSE CAMERA WILL NOT SAVE IMAGE-->
     <string name="fileAuthority">com.example.roaddamagedetector</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

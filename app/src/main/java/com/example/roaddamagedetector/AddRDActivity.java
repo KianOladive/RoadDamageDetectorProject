@@ -1,9 +1,12 @@
 package com.example.roaddamagedetector;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -57,6 +62,9 @@ public class AddRDActivity extends AppCompatActivity {
     @ViewById
     ImageView imgVwAddRD;
 
+    @ViewById
+    BottomNavigationView bottom_navigation;
+
     Realm realm;
     boolean latAndLongAreValid;
     boolean photoExists;
@@ -79,6 +87,32 @@ public class AddRDActivity extends AppCompatActivity {
         Date thisDate = new Date();
         SimpleDateFormat formattedDate = new SimpleDateFormat("MMMM dd, Y | hh:mm a");
         date = formattedDate.format(thisDate);
+
+        bottom_navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item){
+                Activity activity = null;
+                Intent myIntent;
+                switch (item.getItemId()){
+
+                    case R.id.nav_dash:
+                        myIntent = new Intent(AddRDActivity.this, DashboardActivity_.class);
+                        myIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(myIntent);
+//                        DashboardActivity_.intent(MainActivity.this).start();
+//                        finish();
+                        break;
+                    case R.id.nav_settings:
+                        myIntent = new Intent(AddRDActivity.this, SettingsActivity_.class);
+                        myIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(myIntent);
+//                        SettingsActivity_.intent(MainActivity.this).start();
+//                        finish();
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Click(R.id.btnAddRDSave)
