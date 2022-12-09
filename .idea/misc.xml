@@ -10,6 +10,23 @@
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_main.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_register.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/row_user_view_layout.xml" value="0.2713541666666667" />
+        <entry key="app/src/main/res/drawable/bgblack.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/bgblue.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/bglightgrey.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/bgorange.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/bgteal.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/bgyellow.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_dash.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_setting.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/item_selector.xml" value="0.2085" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.1542312622070312" />
+        <entry key="app/src/main/res/layout/activity_logged_in.xml" value="0.1597590128580729" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.10572916666666667" />
+        <entry key="app/src/main/res/layout/activity_nav.xml" value="0.13820190429687498" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.32812042236328126" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.10572916666666667" />
+        <entry key="app/src/main/res/menu/item_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
