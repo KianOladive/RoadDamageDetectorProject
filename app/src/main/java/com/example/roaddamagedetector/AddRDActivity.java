@@ -3,8 +3,8 @@ package com.example.roaddamagedetector;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,6 +19,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,30 +29,41 @@ import java.util.UUID;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-@EActivity(R.layout.activity_register)
-public class RegisterActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@EActivity(R.layout.activity_add_rdactivity)
+public class AddRDActivity extends AppCompatActivity {
 
     @ViewById
-    EditText etUserName;
-    @ViewById
-    EditText etPasswordRegister;
-    @ViewById
-    EditText etConfirmPassword;
+    TextView tvEntryIdContent;
 
     @ViewById
-    Button btnCancel;
+    EditText etDamageType;
     @ViewById
-    Button btnSave;
+    EditText etLatitude;
+    @ViewById
+    EditText etLongitude;
+    @ViewById
+    EditText etLocation;
 
     @ViewById
-    TextView tvRegister;
+    Button btnAddRDPhoto;
+    @ViewById
+    Button btnAddRDSave;
+    @ViewById
+    Button btnAddRDCancel;
 
     @ViewById
-    ImageView imageView2;
-
-    private String path = "";
+    ImageView imgVwAddRD;
 
     Realm realm;
+    boolean latAndLongAreValid;
+    boolean photoExists;
+    int entryId;
+    String userName;
+    String date;
+    String path;
 
 
     @AfterViews
@@ -61,42 +73,53 @@ public class RegisterActivity extends AppCompatActivity {
 
         RealmResults<User> result = realm.where(User.class).findAll();
 
+        // get name from sharedprefs
+        entryId = getNextKey();
+        tvEntryIdContent.setText(String.valueOf(entryId));
+        Date thisDate = new Date();
+        SimpleDateFormat formattedDate = new SimpleDateFormat("MMMM dd, Y | hh:mm a");
+        date = formattedDate.format(thisDate);
     }
 
-    @Click(R.id.btnSave)
-    public void saveValues() {
+    @Click(R.id.btnAddRDSave)
+    public void saveRDEntry() {
 
-        // check if name has value, toast name must not be blank if null
-        if (etUserName.getText().toString().equals("")) {
-            showToast("Name must not be blank.");
+        // check if all fields have value
+        if (etDamageType.getText().toString().equals("") ||
+                etLatitude.getText().toString().equals("") ||
+                etLongitude.getText().toString().equals("") ||
+                etLocation.getText().toString().equals("")
+        ) {
+            showToast("Text fields must not be blank.");
         }
-        // check if passwords match, toast confirm password does not match if false
-        else if (!etPasswordRegister.getText().toString().equals(etConfirmPassword.getText().toString())) {
-            showToast("Confirm Password does not match");
-        }
-        // else
         else {
-            User result = realm.where(User.class)
-                    .equalTo("name", etUserName.getText().toString())
-                    .findFirst();
+            // check if latitude and longitude values are parseable to Double
 
-            if (result == null) { // add user
+            try {
+                Double.parseDouble(etLatitude.getText().toString());
+                Double.parseDouble(etLongitude.getText().toString());
+                latAndLongAreValid = true;
+            } catch(NumberFormatException e){
+                latAndLongAreValid = false;
+            }
+
+            if (latAndLongAreValid) {
                 String uuid = UUID.randomUUID().toString();
-                String name = etUserName.getText().toString();
-                String password = etPasswordRegister.getText().toString();
+                String damageType = etDamageType.getText().toString();
+                Double latitude = Double.parseDouble(etLatitude.getText().toString());
+                Double longitude = Double.parseDouble(etLongitude.getText().toString());
+                String location = etLocation.getText().toString();
 
-                User newUser =  new User(uuid, name, password, path);
+                RoadDamage newRoadDamage =  new RoadDamage(uuid, entryId, damageType, latitude, longitude, userName, location, date);
 
                 long count = 0;
 
                 try {
                     realm.beginTransaction();
-                    realm.copyToRealmOrUpdate(newUser);  // save
+                    realm.copyToRealmOrUpdate(newRoadDamage);  // save
                     realm.commitTransaction();
 
-                    count = realm.where(User.class).count();
-
-                    showToast("New user saved. Total: "+count);
+                    showToast("New road damage entry saved.");
                     finish();
                 }
                 catch(Exception e)
@@ -105,12 +128,12 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
             else {
-                showToast("User already exists");
+                showToast("Please enter valid latitude and longitude values.");
             }
         }
     }
 
-    @Click(R.id.btnCancel)
+    @Click(R.id.btnAddRDCancel)
     public void cancel() {
         finish();
     }
@@ -123,8 +146,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     public static int REQUEST_CODE_IMAGE_SCREEN = 0;
 
-    @Click(R.id.imageView2)
+    @Click(R.id.btnAddRDPhoto)
     public void selectPic()
+    {
+        ImageActivity_.intent(this).startForResult(REQUEST_CODE_IMAGE_SCREEN);
+    }
+
+    @Click(R.id.imgVwAddRD)
+    public void selectPicFromImgVw()
     {
         ImageActivity_.intent(this).startForResult(REQUEST_CODE_IMAGE_SCREEN);
     }
@@ -160,9 +189,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     private File saveFile(byte[] jpeg, String name) throws IOException
     {
         // this is the root directory for the images
@@ -181,11 +207,25 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void refreshImageView(File savedImage) {
         // this will put the image saved to the file system to the imageview
+        btnAddRDPhoto.setVisibility(View.GONE);
         Picasso.get()
                 .load(savedImage)
                 .networkPolicy(NetworkPolicy.NO_CACHE)
                 .memoryPolicy(MemoryPolicy.NO_CACHE)
-                .into(imageView2);
+                .into(imgVwAddRD);
+    }
+
+    public int getNextKey() {
+        try {
+            Number number = realm.where(RoadDamage.class).max("entryId");
+            if (number != null) {
+                return number.intValue() + 1;
+            } else {
+                return 0;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return 0;
+        }
     }
 
     public void onDestroy()
