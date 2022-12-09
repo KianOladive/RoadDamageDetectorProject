@@ -8,7 +8,7 @@ public class RoadDamage extends RealmObject {
     @PrimaryKey
     private String uuid;
 
-    private Long entryId;
+    private int entryId;
     private String damageType;
     private Double latitude;
     private Double longitude;
@@ -17,7 +17,7 @@ public class RoadDamage extends RealmObject {
 
     public RoadDamage() {}
 
-    public RoadDamage(String uuid, Long entryId, String damageType, double latitude, double longitude, String userName, String date) {
+    public RoadDamage(String uuid, int entryId, String damageType, double latitude, double longitude, String userName, String date) {
         this.uuid = uuid;
         this.entryId = entryId;
         this.damageType = damageType;
@@ -33,6 +33,14 @@ public class RoadDamage extends RealmObject {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    public int getEntryId() {
+        return entryId;
+    }
+
+    public void setEntryId(int entryId) {
+        this.entryId = entryId;
     }
 
     public String getDamageType() {
@@ -73,14 +81,6 @@ public class RoadDamage extends RealmObject {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public Long getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(Long entryId) {
-        this.entryId = entryId;
     }
 
     @Override
