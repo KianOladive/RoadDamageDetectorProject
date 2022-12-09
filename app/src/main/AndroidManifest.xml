@@ -19,6 +19,12 @@
         android:theme="@style/Theme.RoadDamageDetector"
         tools:targetApi="31">
         <activity
+            android:name=".SettingsActivity_"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity_"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity_"
             android:exported="false" />
         <activity
@@ -42,6 +48,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_path" />
         </provider>
+
         <activity
             android:name=".EditActivity_"
             android:exported="false" />
