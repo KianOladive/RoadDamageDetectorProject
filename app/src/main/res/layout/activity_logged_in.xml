@@ -11,19 +11,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ]]>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddRoadDamage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="342dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bgyellowbig"
         android:text="Add Road Damage"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHiUser" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -47,9 +66,13 @@
         android:id="@+id/tvHiUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:text="Hi!"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,18 +80,20 @@
         android:id="@+id/imgVwUserLoggedIn"
         android:layout_width="39dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toEndOf="@+id/tvHiUser"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMyRecords"
-        android:layout_width="326dp"
-        android:layout_height="393dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="339dp"
+        android:layout_height="382dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAddRoadDamage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

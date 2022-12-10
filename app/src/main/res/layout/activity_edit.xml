@@ -11,18 +11,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="EDIT"
+        android:text="User Settings"
+        android:textColor="@color/black"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/etPasswordRegister"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etPasswordEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -37,16 +40,18 @@
         android:id="@+id/tvPasswordEdit"
         android:layout_width="68dp"
         android:layout_height="16dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginBottom="8dp"
         android:text="Password:"
         app:layout_constraintBottom_toTopOf="@+id/etPasswordEdit"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etConfirmPasswordOnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
@@ -59,16 +64,18 @@
 
     <Button
         android:id="@+id/btnSaveOnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="88dp"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bgblue"
         android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvConfirmPasswordOnEdit"
@@ -92,25 +99,26 @@
 
     <Button
         android:id="@+id/btnCancelOnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="88dp"
-        android:backgroundTint="#000000"
-        android:drawableTint="#000000"
-        android:foregroundTint="#000000"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bglightgreybt"
         android:text="Cancel"
-        app:iconTint="#000000"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSaveOnEdit"
-        app:layout_constraintHorizontal_bias="0.782"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnSaveOnEdit" />
 
     <EditText
         android:id="@+id/etUserNameOnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:ems="10"
         android:hint="User Name"
         android:inputType="textPersonName"
@@ -133,10 +141,17 @@
 
     <Button
         android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="65dp"
+        android:layout_height="24dp"
         android:layout_marginTop="8dp"
+        android:background="#FAFAFA"
+        android:shadowColor="#FAFAFA"
         android:text="Sign Out"
-        app:layout_constraintStart_toStartOf="@+id/btnSaveOnEdit"
+        android:textAllCaps="false"
+        android:textColor="#8F0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etConfirmPasswordOnEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
