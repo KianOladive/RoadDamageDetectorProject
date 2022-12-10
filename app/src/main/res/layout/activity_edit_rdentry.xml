@@ -10,9 +10,13 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="Edit Entry"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,27 +25,33 @@
         android:layout_width="40dp"
         android:layout_height="41dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <Button
         android:id="@+id/btnAttachPhotoEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Add Photo"
+        android:layout_width="339dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/bgorangebig"
+        android:text="Attach Photo"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ImageView
         android:id="@+id/imgVwEditRD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +62,8 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="232dp"
         android:text="Entry ID"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,6 +73,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="32dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -105,28 +119,43 @@
 
     <Button
         android:id="@+id/btnEditEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="644dp"
-        android:text="Edit"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bgorange"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCancelEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bglightgreybt"
         android:text="Cancel"
-        app:layout_constraintStart_toEndOf="@+id/btnEditEdit"
-        app:layout_constraintTop_toTopOf="@+id/btnEditEdit" />
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnEditEdit" />
 
     <EditText
         android:id="@+id/etDamageTypeEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -135,8 +164,10 @@
 
     <EditText
         android:id="@+id/etLatitudeEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -145,8 +176,10 @@
 
     <EditText
         android:id="@+id/etLongitudeEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -156,8 +189,10 @@
 
     <EditText
         android:id="@+id/etLocationEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+        android:background="@drawable/bglightgrey"
+        android:paddingHorizontal="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"

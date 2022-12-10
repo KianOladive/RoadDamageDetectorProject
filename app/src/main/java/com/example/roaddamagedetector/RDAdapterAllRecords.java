@@ -103,6 +103,8 @@ public class RDAdapterAllRecords extends RealmRecyclerViewAdapter<RoadDamage, RD
 
     }
 
+
+
 }
 
 
