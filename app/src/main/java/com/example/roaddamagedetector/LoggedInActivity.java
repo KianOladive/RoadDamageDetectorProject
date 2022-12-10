@@ -144,8 +144,13 @@ public class LoggedInActivity extends AppCompatActivity {
         AddRDActivity_.intent(this).start();
     }
 
-    @Click(R.id.imgVwUserLoggedIn)
-    public void goToUserSettings() {
-        EditActivity_.intent(this).start();
+    public void goToUserSettings(RoadDamage rd) {
+        //shared prefs
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString("uuidRD", rd.getUuid());
+        edit.apply();
+
+        // intent
+        ViewRDEntry_.intent(this).start();
     }
 }
