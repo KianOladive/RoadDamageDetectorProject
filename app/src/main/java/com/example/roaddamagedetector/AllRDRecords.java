@@ -59,6 +59,10 @@ public class AllRDRecords extends AppCompatActivity {
                     .into(imgVwUserAllRecords);
         }
 
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString("lastRecyclerView", "allrecords");
+        edit.apply();
+
         // query the things to display
         RealmResults<RoadDamage> list = realm.where(RoadDamage.class).findAll();
 

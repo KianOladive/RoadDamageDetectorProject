@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +43,11 @@ public class ViewRDEntry extends AppCompatActivity {
     TextView tvCapturedByView;
     @ViewById
     TextView tvDateContentView;
+
+    @ViewById
+    Button btnEditView;
+    @ViewById
+    Button btnBackView;
 
     @ViewById
     ImageView imgVwUserView;
@@ -97,6 +103,10 @@ public class ViewRDEntry extends AppCompatActivity {
                 .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .into(imgVwViewPic);
 
+        if (prefs.getString("lastRecyclerView", null).equals("allrecords")) {
+            btnEditView.setVisibility(View.GONE);
+            btnBackView.setVisibility(View.GONE);
+        }
     }
 
 
@@ -107,7 +117,7 @@ public class ViewRDEntry extends AppCompatActivity {
 
     @Click(R.id.btnBackView)
     public void backFromView() {
-        AllRDRecords_.intent(this).start();
+        LoggedInActivity_.intent(this).start();
     }
 
     @Click(R.id.imgVwUserView)
