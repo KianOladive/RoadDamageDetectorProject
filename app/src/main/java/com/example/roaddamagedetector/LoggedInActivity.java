@@ -139,6 +139,12 @@ public class LoggedInActivity extends AppCompatActivity {
         });
     }
 
+
+    @Click(R.id.imgVwUserLoggedIn)
+    public void goToUserSettings() {
+        EditActivity_.intent(this).start();
+    }
+
     @Click(R.id.btnAddRoadDamage)
     public void addRoadDamage() {
         AddRDActivity_.intent(this).start();
@@ -152,5 +158,10 @@ public class LoggedInActivity extends AppCompatActivity {
 
         // intent
         ViewRDEntry_.intent(this).start();
+    }
+    public void onDestroy()
+    {
+        super.onDestroy();
+        realm.close();
     }
 }

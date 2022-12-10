@@ -102,16 +102,22 @@ public class ViewRDEntry extends AppCompatActivity {
 
     @Click(R.id.btnEditView)
     public void editFromView() {
-        EditActivity_.intent(this).start();
+        EditRDEntry_.intent(this).start();
     }
 
     @Click(R.id.btnBackView)
     public void backFromView() {
-        finish();
+        AllRDRecords_.intent(this).start();
     }
 
     @Click(R.id.imgVwUserView)
     public void goToSettingsFromView() {
         EditActivity_.intent(this).start();
+    }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        realm.close();
     }
 }

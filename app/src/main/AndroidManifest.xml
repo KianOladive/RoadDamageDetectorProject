@@ -19,6 +19,9 @@
         android:theme="@style/Theme.RoadDamageDetector"
         tools:targetApi="31">
         <activity
+            android:name=".EditRDEntry_"
+            android:exported="false" />
+        <activity
             android:name=".AllRDRecords_"
             android:exported="false" />
         <activity

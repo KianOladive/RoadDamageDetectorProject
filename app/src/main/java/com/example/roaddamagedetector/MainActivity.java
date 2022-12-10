@@ -151,4 +151,10 @@ public class MainActivity extends AppCompatActivity {
         t.show();
     }
 
+    public void onDestroy()
+    {
+        super.onDestroy();
+        realm.close();
+    }
+
 }
