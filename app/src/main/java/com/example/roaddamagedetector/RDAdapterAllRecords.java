@@ -19,7 +19,7 @@ import java.io.File;
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmRecyclerViewAdapter;
 
-public class RDAdapterMyRecords extends RealmRecyclerViewAdapter<RoadDamage, RDAdapterMyRecords.ViewHolder> {
+public class RDAdapterAllRecords extends RealmRecyclerViewAdapter<RoadDamage, RDAdapterAllRecords.ViewHolder> {
 
     // THIS DEFINES WHAT VIEWS YOU ARE FILLING IN
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -48,9 +48,9 @@ public class RDAdapterMyRecords extends RealmRecyclerViewAdapter<RoadDamage, RDA
 
     // IMPORTANT
     // THE CONTAINING ACTIVITY NEEDS TO BE PASSED SO YOU CAN GET THE LayoutInflator(see below)
-    LoggedInActivity activity;
+    AllRDRecords activity;
 
-    public RDAdapterMyRecords(LoggedInActivity activity, @Nullable OrderedRealmCollection<RoadDamage> data, boolean autoUpdate) {
+    public RDAdapterAllRecords(AllRDRecords activity, @Nullable OrderedRealmCollection<RoadDamage> data, boolean autoUpdate) {
         super(data, autoUpdate);
 
         // THIS IS TYPICALLY THE ACTIVITY YOUR RECYCLERVIEW IS IN
@@ -67,12 +67,12 @@ public class RDAdapterMyRecords extends RealmRecyclerViewAdapter<RoadDamage, RDA
         View v = activity.getLayoutInflater().inflate(R.layout.row_rd_view_layout, parent, false);  // VERY IMPORTANT TO USE THIS STYLE
 
         // assign view to the viewholder
-        ViewHolder vh = new ViewHolder(v);
+        RDAdapterAllRecords.ViewHolder vh = new RDAdapterAllRecords.ViewHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RDAdapterAllRecords.ViewHolder holder, int position) {
 
         // gives you the data object at the given position
         RoadDamage rd = getItem(position);

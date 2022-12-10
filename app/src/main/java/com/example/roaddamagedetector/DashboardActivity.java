@@ -198,5 +198,7 @@ public class DashboardActivity extends AppCompatActivity {
         EditActivity_.intent(this).start();
     }
 
+    @Click(R.id.btnViewAllRecords)
+    public void goToAllRecords() {AllRDRecords_.intent(this).start();}
 
 }
