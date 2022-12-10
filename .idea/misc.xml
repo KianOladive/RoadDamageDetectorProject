@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/RoadDamageDetectorProject/app/src/main/res/layout/activity_dashboard.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/RoadDamageDetectorProject/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/RoadDamageDetectorProject/app/src/main/res/layout/activity_view_rdentry.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/RoadDamageDetectorProject/app/src/main/res/layout/row_rd_view_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/RoadDamageDetectorProject/app/src/main/res/layout/row_user_view_layout.xml" value="0.1" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_add_rdactivity.xml" value="0.33" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_admin.xml" value="0.25" />
         <entry key="..\:/Users/Kian/AndroidStudioProjects/RoadDamageDetector/app/src/main/res/layout/activity_all_rdrecords.xml" value="0.33" />
