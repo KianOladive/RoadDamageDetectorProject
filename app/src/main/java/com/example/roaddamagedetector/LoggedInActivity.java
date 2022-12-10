@@ -79,6 +79,11 @@ public class LoggedInActivity extends AppCompatActivity {
                     .into(imgVwUserLoggedIn);
         }
 
+
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString("lastRecyclerView", "login");
+        edit.apply();
+
         // query the things to display
         RealmResults<RoadDamage> list = realm.where(RoadDamage.class).equalTo("userName", loggedInUser.getName()).findAll();
 

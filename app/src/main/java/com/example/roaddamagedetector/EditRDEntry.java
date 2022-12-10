@@ -112,10 +112,11 @@ public class EditRDEntry extends AppCompatActivity {
         tvEntryIdContentEdit.setText(String.valueOf(currentlyEditing.getEntryId()));
         userName = currentlyEditing.getUserName();
         path = currentlyEditing.getPath();
+        entryId = currentlyEditing.getEntryId();
 
         // get date information
         Date thisDate = new Date();
-        SimpleDateFormat formattedDate = new SimpleDateFormat("MMdd-Y hh:mm a");
+        SimpleDateFormat formattedDate = new SimpleDateFormat("MM-dd-Y hh:mm a");
         date = formattedDate.format(thisDate);
 
         if (!(currentlyEditing.getPath().equals(""))) {
