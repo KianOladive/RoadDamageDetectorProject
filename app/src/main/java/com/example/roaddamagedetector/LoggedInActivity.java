@@ -1,10 +1,13 @@
 package com.example.roaddamagedetector;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -27,6 +30,7 @@ import org.androidannotations.annotations.ViewById;
 import java.io.File;
 
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 @EActivity(R.layout.activity_logged_in)
@@ -39,6 +43,12 @@ public class LoggedInActivity extends AppCompatActivity {
     TextView tvHiUser;
 
     @ViewById
+    ImageView imgVwUserLoggedIn;
+
+    @ViewById
+    RecyclerView recyclerMyRecords;
+
+    @ViewById
     BottomNavigationView bottom_navigation;
 
     SharedPreferences prefs;
@@ -48,6 +58,11 @@ public class LoggedInActivity extends AppCompatActivity {
 
     @AfterViews
     public void init() {
+        // initialize RecyclerView
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerMyRecords.setLayoutManager(mLayoutManager);
+
         prefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
         realm = Realm.getInstance(RealmUtility.getDefaultConfig());
 
@@ -55,6 +70,21 @@ public class LoggedInActivity extends AppCompatActivity {
         User loggedInUser = realm.where(User.class)
                 .equalTo("uuid", uuidUser)
                 .findFirst();
+        if (!(loggedInUser.getPath().equals(""))) {
+            File imageOfLoggedInUser = new File(getExternalCacheDir(), loggedInUser.getPath());
+            Picasso.get()
+                    .load(imageOfLoggedInUser)
+                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                    .into(imgVwUserLoggedIn);
+        }
+
+        // query the things to display
+        RealmResults<RoadDamage> list = realm.where(RoadDamage.class).equalTo("userName", loggedInUser.getName()).findAll();
+
+        // initialize Adapter
+        RDAdapterMyRecords adapter = new RDAdapterMyRecords(this, list, true);
+        recyclerMyRecords.setAdapter(adapter);
 
         tvHiUser.setText("Hi, " + loggedInUser.getName() + "!");
 
@@ -112,5 +142,10 @@ public class LoggedInActivity extends AppCompatActivity {
     @Click(R.id.btnAddRoadDamage)
     public void addRoadDamage() {
         AddRDActivity_.intent(this).start();
+    }
+
+    @Click(R.id.imgVwUserLoggedIn)
+    public void goToUserSettings() {
+        EditActivity_.intent(this).start();
     }
 }

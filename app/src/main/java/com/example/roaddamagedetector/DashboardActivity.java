@@ -20,6 +20,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -66,6 +67,7 @@ public class DashboardActivity extends AppCompatActivity {
     Realm realm;
 
     String uuidUser;
+    User loggedInUser;
 
 
 
@@ -77,7 +79,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         // gets pic from logged in user and sets it
         uuidUser = prefs.getString("uuidUser", null);
-        User loggedInUser = realm.where(User.class)
+        loggedInUser = realm.where(User.class)
                 .equalTo("uuid", uuidUser)
                 .findFirst();
         if (!(loggedInUser.getPath().equals(""))) {
@@ -115,7 +117,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         tvMostCommonDamageTypeContent.setText(mostCommonDamageType);
-        tvDamageTypeEntries.setText(String.valueOf(numOfMostCommonDamageType));
+        tvDamageTypeEntries.setText(String.valueOf(numOfMostCommonDamageType) + " entries");
 
 
         // set most common location
@@ -139,7 +141,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         tvLocationWithMostEntriesContent.setText(mostCommonLocation);
-        tvLocationMostEntriesNum.setText(String.valueOf(numOfMostLocation));
+        tvLocationMostEntriesNum.setText(String.valueOf(numOfMostLocation) + " entries");
 
 
         // set most common user
@@ -163,7 +165,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         tvMostCommonUserContent.setText(mostCommonUserName);
-        tvMostCommonUserNum.setText(String.valueOf(numOfMostCommonUserName));
+        tvMostCommonUserNum.setText(String.valueOf(numOfMostCommonUserName) + " entries");
 
 
 
@@ -189,6 +191,11 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Click(R.id.imgVwUserDashboard)
+    public void goToUserSettings() {
+        EditActivity_.intent(this).start();
     }
 
 

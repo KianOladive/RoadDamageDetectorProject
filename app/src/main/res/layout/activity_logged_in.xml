@@ -4,7 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoggedInActivity">
+    tools:context=".LoggedInActivity"><![CDATA[
+
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+
+
+    ]]>
 
     <Button
         android:id="@+id/btnAddRoadDamage"
@@ -13,10 +20,10 @@
         android:text="Add Road Damage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:layout_constraintVertical_bias="0.133" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -40,9 +47,28 @@
         android:id="@+id/tvHiUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="52dp"
         android:text="Hi!"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddRoadDamage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgVwUserLoggedIn"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="76dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMyRecords"
+        android:layout_width="326dp"
+        android:layout_height="393dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddRoadDamage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
