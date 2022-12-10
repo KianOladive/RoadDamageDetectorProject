@@ -81,4 +81,10 @@ public class AllRDRecords extends AppCompatActivity {
     public void goToEditFromAllRecords() {
         EditActivity_.intent(this).start();
     }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        realm.close();
+    }
 }

@@ -201,4 +201,11 @@ public class DashboardActivity extends AppCompatActivity {
     @Click(R.id.btnViewAllRecords)
     public void goToAllRecords() {AllRDRecords_.intent(this).start();}
 
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        realm.close();
+    }
+
 }

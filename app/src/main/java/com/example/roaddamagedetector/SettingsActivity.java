@@ -133,4 +133,9 @@ public class SettingsActivity extends AppCompatActivity {
         Toast t  = Toast.makeText(this, str, Toast.LENGTH_LONG);
         t.show();
     }
+    public void onDestroy()
+    {
+        super.onDestroy();
+        realm.close();
+    }
 }
