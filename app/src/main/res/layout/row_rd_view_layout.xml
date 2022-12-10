@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bglightgrey"
-    android:paddingBottom="12dp">
+    android:layout_marginBottom="10dp">
 
 
     <TextView
@@ -59,7 +59,7 @@
     <Button
         android:id="@+id/btnRDClickable"
         android:layout_width="414dp"
-        android:layout_height="112dp"
+        android:layout_height="100dp"
         android:background="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
