@@ -130,4 +130,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEdit"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sign Out"
+        app:layout_constraintStart_toStartOf="@+id/btnSaveOnEdit"
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmPasswordOnEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -40,6 +41,9 @@ public class EditActivity extends AppCompatActivity {
     EditText etConfirmPasswordOnEdit;
 
     @ViewById
+    Button btnSignOut;
+
+    @ViewById
     ImageView imageView3;
 
     Realm realm;
@@ -56,7 +60,7 @@ public class EditActivity extends AppCompatActivity {
         RealmResults<User> result = realm.where(User.class).findAll();
         prefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
 
-        String uuidBeingViewed = prefs.getString("uuidBeingViewed", null);
+        String uuidBeingViewed = prefs.getString("uuidUser", null);
         User currentlyEditing = realm.where(User.class)
                 .equalTo("uuid", uuidBeingViewed)
                 .findFirst();
@@ -195,6 +199,11 @@ public class EditActivity extends AppCompatActivity {
     public void showToast(String str) {
         Toast t  = Toast.makeText(this, str, Toast.LENGTH_LONG);
         t.show();
+    }
+
+    @Click(R.id.btnSignOut)
+    public void signOut() {
+        MainActivity_.intent(this).start();
     }
 
     public void onDestroy()

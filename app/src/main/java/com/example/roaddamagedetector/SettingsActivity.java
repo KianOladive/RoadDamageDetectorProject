@@ -11,15 +11,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
+import java.io.File;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -29,6 +35,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     @ViewById
     Button btnClearRecords;
+
+    @ViewById
+    ImageView imgVwUserSettings;
 
     @ViewById
     BottomNavigationView bottom_navigation;
@@ -48,6 +57,15 @@ public class SettingsActivity extends AppCompatActivity {
         loggedInUser = realm.where(User.class)
                 .equalTo("uuid", uuidUser)
                 .findFirst();
+
+        if (!(loggedInUser.getPath().equals(""))) {
+            File imageOfLoggedInUser = new File(getExternalCacheDir(), loggedInUser.getPath());
+            Picasso.get()
+                    .load(imageOfLoggedInUser)
+                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                    .into(imgVwUserSettings);
+        }
 
         bottom_navigation.getMenu().getItem(2).setChecked(true);
         bottom_navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -104,6 +122,11 @@ public class SettingsActivity extends AppCompatActivity {
                 .show();
 
 
+    }
+
+    @Click(R.id.imgVwUserSettings)
+    public void goToUserSettings() {
+        EditActivity_.intent(this).start();
     }
 
     public void showToast(String str) {

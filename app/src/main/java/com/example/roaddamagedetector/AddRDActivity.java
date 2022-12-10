@@ -88,7 +88,7 @@ public class AddRDActivity extends AppCompatActivity {
         entryId = getNextKey();
         tvEntryIdContent.setText(String.valueOf(entryId));
         Date thisDate = new Date();
-        SimpleDateFormat formattedDate = new SimpleDateFormat("MMMM dd, Y | hh:mm a");
+        SimpleDateFormat formattedDate = new SimpleDateFormat("MM-dd-Y hh:mm a");
         date = formattedDate.format(thisDate);
 
         uuidUser = prefs.getString("uuidUser", null);
